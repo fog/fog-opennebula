@@ -1,5 +1,3 @@
-# require 'fog/opennebula/core'
-
 module Fog
   module Compute
     class OpenNebula < Fog::Service
