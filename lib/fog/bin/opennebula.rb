@@ -1,4 +1,4 @@
-module OpenNebula # deviates from other bin stuff to accomodate gem
+module OpenNebula
   class << self
     def class_for(key)
       case key
@@ -10,7 +10,7 @@ module OpenNebula # deviates from other bin stuff to accomodate gem
     end
 
     def [](service)
-      @@connections ||= Hash.new do |hash, key|
+      @connections ||= Hash.new do |hash, key|
         hash[key] = case key
                     when :compute
                       Fog::Compute.new(provider: 'OpenNebula')
@@ -18,7 +18,7 @@ module OpenNebula # deviates from other bin stuff to accomodate gem
                       raise ArgumentError, "Unrecognized service: #{key.inspect}"
                     end
       end
-      @@connections[service]
+      @connections[service]
     end
 
     def services

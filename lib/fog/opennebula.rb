@@ -5,7 +5,7 @@ require 'opennebula'
 
 module Fog
   module Compute
-    autoload :OpenNebula, File.expand_path('../opennebula/compute', __FILE__)
+    autoload :OpenNebula, File.expand_path('opennebula/compute', __dir__)
   end
 
   module OpenNebula
@@ -18,7 +18,5 @@ module Fog
     end
 
     service(:compute, 'Compute')
-    
   end
-  
 end

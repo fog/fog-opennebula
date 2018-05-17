@@ -117,6 +117,7 @@ module Fog
 
         def initialize(options = {})
           require 'opennebula'
+          credentials=
           @client = ::OpenNebula::Client.new("#{options[:opennebula_username]}:#{options[:opennebula_password]}", options[:opennebula_endpoint])
         end
       end
