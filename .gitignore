@@ -26,3 +26,7 @@ tags
 tests/digitalocean/fixtures/
 
 providers/*/doc
+build.sh
+fog-opennebula-test.rb
+.directory
+.vscode
