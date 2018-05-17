@@ -1,43 +1,33 @@
-# coding: utf-8
-lib = File.expand_path("../lib", __FILE__)
+lib = File.expand_path('lib', __dir__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require "fog/opennebula/version"
+require 'fog/opennebula/version'
 
 Gem::Specification.new do |s|
-  s.specification_version = 2 if s.respond_to? :specification_version=
-  s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
+  s.name        = 'fog-opennebula'
+  s.version     = Fog::OpenNebula::VERSION
+  s.authors     = ['Daniel Clavijo Coca']
+  s.email       = 'dann1telecom@gmail.com'
+  s.summary     = 'Module for the fog gem to support OpenNebula'
+  s.description = 'This library can be used as a module for fog or as standalone provider'
+  s.homepage    = 'http://github.com/dann1/fog-opennebula'
+  s.license     = 'MIT'
 
-  s.name              = "fog-opennebula"
-  s.version           = Fog::OpenNebula::VERSION
+  s.files         = `git ls-files -z`.split("\x0")
+  s.executables   = s.files.grep(%r{^bin/}) { |f| File.basename(f) }
+  s.test_files    = s.files.grep(%r{^(test|spec|features)/})
+  s.require_paths = ['lib']
 
-  s.summary     = "Module for Fog to support OpenNebula as additional Provider among others"
-  s.description = "This library can be used as a module for 'fog' or as standalopennebula OpenNebula provider."
+  s.required_ruby_version = '>= 2.0.0'
 
-  s.authors  = ["Netways Managed Services GmbH"]
-  s.email    = "info@netways.de."
-  s.homepage = "http://github.com/netways/fog-opennebula"
-  s.license  = "MIT"
-
-  s.require_paths = %w[lib]
-
-  s.rdoc_options = ["--charset=UTF-8"]
-  s.extra_rdoc_files = %w[README.md]
-
-  s.add_dependency("xmlrpc") if RUBY_VERSION > "2.4.0"
-  s.add_dependency("fog-core")
-  s.add_dependency("opennebula")
-  s.add_dependency("fog-json")
-  s.add_dependency("fog-xml")
-
-  s.add_development_dependency("minitest")
-  s.add_development_dependency("minitest-stub-const")
-  s.add_development_dependency("rake")
-  s.add_development_dependency("shindo", "~> 0.3.4")
-  s.add_development_dependency("simplecov")
-  s.add_development_dependency("mocha", "~> 1.1.0")
-
-  # Let's not ship dot files and gemfiles
-  git_files = `git ls-files`.split("\n")
-  s.files = git_files.delete_if{ |f| f =~ /^\..*/ || f =~ /^gemfiles\/*/ }
-  s.test_files = `git ls-files -- {spec,tests}/*`.split("\n")
+  s.add_dependency 'fog-core',  '~> 2.1'
+  s.add_dependency 'fog-json',  '~> 1.1'
+  s.add_dependency 'fog-xml',   '~> 0.1'
+  s.add_dependency 'opennebula'
+  s.add_dependency 'xmlrpc', '~> 0.3.0' if RUBY_VERSION > '2.4.0'
+  s.add_development_dependency 'minitest'
+  s.add_development_dependency 'minitest-stub-const'
+  s.add_development_dependency 'mocha', '~> 1.1.0'
+  s.add_development_dependency 'rake'
+  s.add_development_dependency 'shindo', '~> 0.3.4'
+  s.add_development_dependency 'simplecov'
 end
