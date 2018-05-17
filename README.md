@@ -1,4 +1,6 @@
 # Fog::OpenNebula
+[![OpenNebula](https://img.shields.io/badge/one-5.4.6-blue.svg?style=flat-square)](https://opennebula.org)
+[![OpenNebula](https://img.shields.io/badge/gem version-5.4.6-red.svg?style=flat-square)](https://opennebula.org)
 
 ## Installation
 
