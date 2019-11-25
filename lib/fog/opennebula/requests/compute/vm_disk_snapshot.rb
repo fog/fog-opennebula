@@ -4,7 +4,7 @@ module Fog
       class Real
         def vm_disk_snapshot(id, disk_id, image_name)
           vmpool = ::OpenNebula::VirtualMachinePool.new(client)
-          vmpool.info!(-2, id, id, -1)
+          vmpool.info(-2, id, id, -1)
 
           rc = 0
           vmpool.each do |vm|

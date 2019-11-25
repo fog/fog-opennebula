@@ -1,5 +1,5 @@
 # Fog::OpenNebula
-[![OpenNebula](https://img.shields.io/badge/one-5.4.6-blue.svg?style=flat-square)](https://opennebula.org)
+[![OpenNebula](https://img.shields.io/badge/one-5.8.5-blue.svg?style=flat-square)](https://opennebula.org)
 
 ## Installation
 
@@ -53,7 +53,7 @@ con = Fog::Compute.new(
   provider: 'OpenNebula',
   opennebula_username: 'oneadmin',
   opennebula_password: 'password',
-  opennebula_endpoint: 'http://opennebula.local/RPC2'
+  opennebula_endpoint: 'http://localhost:2633/RPC2'
 )
 
 # list all vms

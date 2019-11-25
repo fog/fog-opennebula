@@ -6,10 +6,10 @@ module Fog
           vms = []
           vmpool = ::OpenNebula::VirtualMachinePool.new(client)
           if filter[:id].nil?
-            vmpool.info!(-2, -1, -1, -1)
+            vmpool.info(-2, -1, -1, -1)
           elsif filter[:id]
             filter[:id] = filter[:id].to_i if filter[:id].is_a?(String)
-            vmpool.info!(-2, filter[:id], filter[:id], -1)
+            vmpool.info(-2, filter[:id], filter[:id], -1)
           end
 
           vmpool.each do |vm|

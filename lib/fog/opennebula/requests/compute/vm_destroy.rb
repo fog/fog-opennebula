@@ -4,7 +4,7 @@ module Fog
       class Real
         def vm_destroy(id)
           vmpool = ::OpenNebula::VirtualMachinePool.new(client)
-          vmpool.info!(-2, id, id, -1)
+          vmpool.info(-2, id, id, -1)
 
           vmpool.each do |vm|
             # true => delete and recreate vm
