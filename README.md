@@ -1,5 +1,5 @@
 # Fog::OpenNebula
-[![OpenNebula](https://img.shields.io/badge/one-5.8.5-blue.svg?style=flat-square)](https://opennebula.org)
+[![OpenNebula](https://img.shields.io/badge/one-5.10.1-blue.svg?style=flat-square)](https://opennebula.org)
 
 ## Installation
 
