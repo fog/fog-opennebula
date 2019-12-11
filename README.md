@@ -89,7 +89,7 @@ newvm.flavor.vcpu = 2
 newvm.flavor.memory = 256
 
 # create a new network interface attached to the network with id 0 and virtio as driver/model
-network = client.networks.get(0)
+network = con.networks.get(0)
 nic = con.interfaces.new({ :vnet => network, :model => "virtio"})
 
 # Attach the new nic to our vm
