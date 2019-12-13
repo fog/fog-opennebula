@@ -1,7 +1,11 @@
 module Fog
+
   module Compute
+
     class OpenNebula
+
       class Real
+
         def list_groups(filter = {})
           groups = []
           grouppool = ::OpenNebula::GroupPool.new(client)
@@ -31,13 +35,15 @@ module Fog
               end
               next if filter_missmatch
             end
-            groups << { id: group['ID'], name: group['NAME'] }
+            groups << { :id => group['ID'], :name => group['NAME'] }
           end
           groups
         end
+
       end
 
       class Mock
+
         def list_groups(filter = {})
           groups = []
           net1 = mock_group '1', 'net1'
@@ -56,7 +62,7 @@ module Fog
               end
               next if filter_missmatch
             end
-            groups << { id: group['ID'], name: group['NAME'] }
+            groups << { :id => group['ID'], :name => group['NAME'] }
           end
           groups
         end
@@ -71,7 +77,11 @@ module Fog
             'VLAN'	 => '5'
           }
         end
+
       end
+
     end
+
   end
+
 end

@@ -1,7 +1,11 @@
 module Fog
+
   module Compute
+
     class OpenNebula
+
       class Real
+
         def list_vms(filter = {})
           vms = []
           vmpool = ::OpenNebula::VirtualMachinePool.new(client)
@@ -43,13 +47,17 @@ module Fog
           end
           vms
         end
+
       end
 
       module Shared
+
         private
+
       end
 
       class Mock
+
         def list_vms(filter = {})
           vms = []
           data['vms'].each do |vm|
@@ -61,7 +69,11 @@ module Fog
           end
           vms
         end
+
       end
+
     end
+
   end
+
 end

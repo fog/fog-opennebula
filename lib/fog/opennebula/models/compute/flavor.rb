@@ -1,9 +1,13 @@
 require 'fog/core/model'
 
 module Fog
+
   module Compute
+
     class OpenNebula
+
       class Flavor < Fog::Model
+
         identity :id
         attribute :name
         attribute :content
@@ -46,6 +50,7 @@ module Fog
         def get_cpu
           return "CPU=#{vcpu.to_f / 10}\n" unless cpu
           return "CPU=#{vcpu}\n" if cpu.to_i > vcpu.to_i
+
           "CPU=#{cpu}\n"
         end
 
@@ -61,6 +66,7 @@ module Fog
 
         def get_raw
           return '' unless raw
+
           ret = "RAW=#{raw}\n"
           ret.tr!('{', '[')
           ret.tr!('}', ']')
@@ -70,6 +76,7 @@ module Fog
 
         def get_disk
           return '' unless disk
+
           ret = ''
           if disk.is_a? Array
             disk.each do |d|
@@ -86,6 +93,7 @@ module Fog
 
         def get_os
           return '' unless os
+
           ret = "OS=#{os}\n"
           ret.tr!('{', '[')
           ret.tr!('}', ']')
@@ -95,6 +103,7 @@ module Fog
 
         def get_graphics
           return '' unless graphics
+
           ret = "GRAPHICS=#{graphics}\n"
           ret.tr!('{', '[')
           ret.tr!('}', ']')
@@ -104,6 +113,7 @@ module Fog
 
         def get_nic
           return '' if nic.nil?
+
           ret = ''
           if nic.is_a? Array
             nic.each do |n|
@@ -118,21 +128,25 @@ module Fog
 
         def get_sched_ds_requirements
           return '' unless sched_ds_requirements
+
           %(SCHED_DS_REQUIREMENTS="#{sched_ds_requirements.gsub(/"/) { %q(\") }}"\n)
         end
 
         def get_sched_ds_rank
           return '' unless sched_ds_rank
+
           %(SCHED_DS_RANK="#{sched_ds_rank.gsub(/"/) { %q(\") }}"\n)
         end
 
         def get_sched_requirements
           return '' unless sched_requirements
+
           %(SCHED_REQUIREMENTS="#{sched_requirements.gsub(/"/) { %q(\") }}"\n)
         end
 
         def get_sched_rank
           return '' unless sched_rank
+
           %(SCHED_RANK="#{sched_rank.gsub(/"/) { %q(\") }}"\n)
         end
 
@@ -166,7 +180,11 @@ module Fog
             return ''
           end
         end
+
       end
+
     end
+
   end
+
 end

@@ -1,5 +1,7 @@
 module OpenNebula
+
   class << self
+
     def class_for(key)
       case key
       when :compute
@@ -11,12 +13,12 @@ module OpenNebula
 
     def [](service)
       @connections ||= Hash.new do |hash, key|
-        hash[key] = case key
-                    when :compute
-                      Fog::Compute.new(provider: 'OpenNebula')
-                    else
-                      raise ArgumentError, "Unrecognized service: #{key.inspect}"
-                    end
+        case key
+        when :compute
+          hash[key] = Fog::Compute.new(:provider => 'OpenNebula')
+        else
+          hash[key] = raise ArgumentError, "Unrecognized service: #{key.inspect}"
+        end
       end
       @connections[service]
     end
@@ -24,5 +26,7 @@ module OpenNebula
     def services
       Fog::OpenNebula.services
     end
-  end
+
+end
+
 end

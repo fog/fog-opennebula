@@ -1,7 +1,11 @@
 module Fog
+
   module Compute
+
     class OpenNebula
+
       class Real
+
         def vm_destroy(id)
           vmpool = ::OpenNebula::VirtualMachinePool.new(client)
           vmpool.info(-2, id, id, -1)
@@ -11,9 +15,11 @@ module Fog
             vm.delete(false)
           end
         end
+
       end
 
       class Mock
+
         def vm_destroy(id)
           response = Excon::Response.new
           response.status = 200
@@ -23,7 +29,11 @@ module Fog
           end
           true
         end
+
       end
+
     end
+
   end
+
 end
