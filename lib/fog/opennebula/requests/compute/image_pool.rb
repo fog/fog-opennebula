@@ -1,7 +1,11 @@
 module Fog
+
   module Compute
+
     class OpenNebula
+
       class Real
+
         def image_pool(filter = {})
           images = ::OpenNebula::ImagePool.new(client)
           if filter[:mine].nil?
@@ -19,7 +23,11 @@ module Fog
           end
           images
         end
+
       end
+
     end
+
   end
+
 end

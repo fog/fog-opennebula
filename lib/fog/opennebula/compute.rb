@@ -1,6 +1,9 @@
 module Fog
+
   module Compute
+
     class OpenNebula < Fog::Service
+
       requires   :opennebula_endpoint
       recognizes :opennebula_username, :opennebula_password
 
@@ -32,6 +35,7 @@ module Fog
       request :image_pool
 
       class Mock
+
         def self.data
           @data ||= Hash.new do |hash, key|
             hash[key] = {
@@ -108,19 +112,25 @@ module Fog
         def reset_data
           self.class.data.delete(@opennebula_endpoint)
         end
+
       end
 
       class Real
+
         include Collections
 
         attr_reader :client
 
         def initialize(options = {})
           require 'opennebula'
-          credentials=
-          @client = ::OpenNebula::Client.new("#{options[:opennebula_username]}:#{options[:opennebula_password]}", options[:opennebula_endpoint])
+          credentials =
+            @client = ::OpenNebula::Client.new("#{options[:opennebula_username]}:#{options[:opennebula_password]}", options[:opennebula_endpoint])
         end
+
       end
+
     end
+
   end
+
 end

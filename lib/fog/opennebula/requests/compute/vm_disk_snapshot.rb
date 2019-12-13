@@ -1,7 +1,11 @@
 module Fog
+
   module Compute
+
     class OpenNebula
+
       class Real
+
         def vm_disk_snapshot(id, disk_id, image_name)
           vmpool = ::OpenNebula::VirtualMachinePool.new(client)
           vmpool.info(-2, id, id, -1)
@@ -13,11 +17,17 @@ module Fog
           end
           rc
         end
+
       end
 
       class Mock
+
         def vm_disk_snapshot(id, disk_id, image_name); end
+
       end
+
     end
+
   end
+
 end

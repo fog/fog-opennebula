@@ -1,7 +1,11 @@
 module Fog
+
   module Compute
+
     class OpenNebula
+
       class Real
+
         def list_networks(filter = {})
           networks = []
           netpool = ::OpenNebula::VirtualNetworkPool.new(client)
@@ -29,12 +33,13 @@ module Fog
 
         def network_to_attributes(net)
           return if net.nil?
+
           h = {
-            id: net['VNET']['ID'],
-            name: net['VNET']['NAME'],
-            uid: net['VNET']['UID'],
-            uname: net['VNET']['UNAME'],
-            gid: net['VNET']['GID']
+            :id => net['VNET']['ID'],
+            :name => net['VNET']['NAME'],
+            :uid => net['VNET']['UID'],
+            :uname => net['VNET']['UNAME'],
+            :gid => net['VNET']['GID']
           }
 
           h[:description] = net['VNET']['TEMPLATE']['DESCRIPTION'] unless net['VNET']['TEMPLATE']['DESCRIPTION'].nil?
@@ -42,9 +47,11 @@ module Fog
 
           h
         end
+
       end
 
       class Mock
+
         def list_networks(_filters = {})
           net1 = mock_network 'fogtest'
           net2 = mock_network 'net2'
@@ -53,16 +60,20 @@ module Fog
 
         def mock_network(name)
           {
-            id: '5',
-            name: name,
-            uid: '5',
-            uname: 'mock',
-            gid: '5',
-            description: 'netDescription',
-            vlan: '5'
+            :id => '5',
+            :name => name,
+            :uid => '5',
+            :uname => 'mock',
+            :gid => '5',
+            :description => 'netDescription',
+            :vlan => '5'
           }
         end
+
       end
+
     end
+
   end
+
 end

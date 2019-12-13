@@ -1,9 +1,13 @@
 require 'fog/core/model'
 
 module Fog
+
   module Compute
+
     class OpenNebula
+
       class Interface < Fog::Model
+
         identity :id
         attribute :vnet
         attribute :model
@@ -25,7 +29,11 @@ module Fog
         def destroy
           raise Fog::Errors::Error, 'Destroying an interface is not yet implemented. Contributions welcome!'
         end
+
       end
+
     end
+
   end
+
 end

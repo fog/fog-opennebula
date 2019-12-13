@@ -3,13 +3,13 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'fog/opennebula/version'
 
 Gem::Specification.new do |s|
-  s.name        = 'fog-opennebula'
+  s.name = 'fog-opennebula'
   s.version     = Fog::OpenNebula::VERSION
   s.authors     = ['Daniel Clavijo Coca']
   s.email       = 'dann1telecom@gmail.com'
   s.summary     = 'Module for the fog gem to support OpenNebula'
   s.description = 'This library can be used as a module for fog or as standalone provider'
-  s.homepage    = 'http://github.com/dann1/fog-opennebula'
+  s.homepage    = 'http://github.com/fog/fog-opennebula'
   s.license     = 'MIT'
 
   s.files         = `git ls-files -z`.split("\x0")
@@ -19,7 +19,9 @@ Gem::Specification.new do |s|
 
   s.required_ruby_version = '>= 2.0.0'
 
-  s.add_dependency 'fog-core',  '~> 2.1'
+  ###### Gem dependencies ######
+
+  s.add_dependency 'fog-core',  '= 2.1.0'
   s.add_dependency 'fog-json',  '~> 1.1'
   s.add_dependency 'fog-xml',   '~> 0.1'
   s.add_dependency 'opennebula'

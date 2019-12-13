@@ -1,9 +1,13 @@
 require 'fog/core/model'
 
 module Fog
+
   module Compute
+
     class OpenNebula
+
       class Network < Fog::Model
+
         identity :id
         attribute :name
         attribute :uname
@@ -34,7 +38,11 @@ module Fog
           ret += "VLAN #{vlan} - " unless vlan.empty?
           ret += name.to_s
         end
+
       end
+
     end
+
   end
+
 end

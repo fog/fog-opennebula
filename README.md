@@ -1,4 +1,5 @@
 # Fog::OpenNebula
+
 [![OpenNebula](https://img.shields.io/badge/one-5.10.1-blue.svg?style=flat-square)](https://opennebula.org)
 
 ## Installation
@@ -20,20 +21,8 @@ Interaction with [OpenNebula](http://www.opennebula.org) is done via the [Ruby O
 ## Requirements
 
 - Ruby version 2.0.x and higher
-- gems
-	- fog-core (>= 0)
-	- fog-json (>= 0)
-	- fog-xml (>= 0)
-	- minitest (>= 0, development)
-	- minitest-stub-const (>= 0, development)
-	- mocha (~> 1.1.0, development)
-	- opennebula (>= 0)
-	- rake (>= 0, development)
-	- shindo (~> 0.3.4, development)
-	- simplecov (>= 0, development)
-	- xmlrpc (>= 0)
+- gems: See [gemspec](./fog-opennebula.gemspec)
 - Working OpenNebula instance with XML-RPC and oneadmin user credentials
-- OpenNebula (tested version is 5.4.x)
 
 ## Usage
 

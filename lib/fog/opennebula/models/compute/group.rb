@@ -1,9 +1,13 @@
 require 'fog/core/model'
 
 module Fog
+
   module Compute
+
     class OpenNebula
+
       class Group < Fog::Model
+
         identity :id
         attribute :name
 
@@ -14,7 +18,11 @@ module Fog
         def to_label
           name
         end
+
       end
+
     end
+
   end
+
 end

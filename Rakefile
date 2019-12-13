@@ -2,7 +2,6 @@ require 'bundler/setup'
 require 'rake/testtask'
 require 'rubygems'
 require 'rubygems/package_task'
-#require 'yard'
 require File.dirname(__FILE__) + '/lib/fog/opennebula'
 
 #############################################################################
@@ -33,14 +32,14 @@ end
 #
 #############################################################################
 
-GEM_NAME = "#{name}"
+GEM_NAME = name.to_s
 task :default => [:test]
 
-testcommand = "shindont"
-ENV.each do |key,val|
-    if key =~ /VERBOSE|DEBUG/
-        testcommand = (val =~ /1|true/ ) ? "shindo" : "shindont"
-    end
+testcommand = 'shindont'
+ENV.each do |key, val|
+  if key =~ /VERBOSE|DEBUG/
+    val =~ /1|true/ ? testcommand = 'shindo' : testcommand = 'shindont'
+  end
 end
 
 desc 'Run tests'
@@ -59,9 +58,9 @@ task :live do
   sh("export FOG_MOCK=false && bundle exec #{testcommand} tests")
 end
 
-desc "Open an irb session preloaded with this library"
+desc 'Open an irb session preloaded with this library'
 task :console do
-  sh "irb -rubygems -r ./lib/fog/opennebula.rb"
+  sh 'irb -rubygems -r ./lib/fog/opennebula.rb'
 end
 
 #############################################################################
@@ -70,12 +69,12 @@ end
 #
 #############################################################################
 
-task :release => ["release:prepare", "release:publish"]
+task :release => ['release:prepare', 'release:publish']
 
 namespace :release do
   task :preflight do
     unless `git branch` =~ /^\* master$/
-      puts "You must be on the master branch to release!"
+      puts 'You must be on the master branch to release!'
       exit!
     end
     if `git tag` =~ /^\* v#{version}$/
@@ -102,7 +101,7 @@ task :git_mark_release do
 end
 
 task :git_push_release do
-  sh "git push origin master"
+  sh 'git push origin master'
   sh "git push origin v#{version}"
 end
 
@@ -112,7 +111,7 @@ end
 
 desc "Build #{name}-#{version}.gem"
 task :build do
-  sh "mkdir -p pkg"
+  sh 'mkdir -p pkg'
   sh "gem build #{gemspec_file}"
   sh "mv #{gem_file} pkg"
 end

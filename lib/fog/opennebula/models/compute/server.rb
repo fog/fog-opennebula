@@ -1,9 +1,13 @@
 require 'fog/compute/models/server'
 
 module Fog
+
   module Compute
+
     class OpenNebula
+
       class Server < Fog::Compute::Server
+
         identity :id
         attribute :template_str
         attribute :name
@@ -71,7 +75,11 @@ module Fog
           requires :id
           service.get_vnc_console(id, 'vnc', onevm_object)
         end
+
       end
+
     end
+
   end
+
 end

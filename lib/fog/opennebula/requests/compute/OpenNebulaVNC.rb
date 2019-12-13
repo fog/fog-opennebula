@@ -53,11 +53,12 @@ VNC_STATES = [
 VAR_LOCATION = Dir.pwd + '/extras/noVNC'
 SHARE_LOCATION = Dir.pwd + '/extras/noVNC'
 class OpenNebulaVNC
+
   attr_reader :proxy_port
 
   def initialize(config, logger, options = {})
-    opts = { json_errors: true,
-             token_folder_name: 'sunstone_vnc_tokens' }.merge(options)
+    opts = { :json_errors => true,
+             :token_folder_name => 'sunstone_vnc_tokens' }.merge(options)
 
     @pipe = nil
     @token_folder = File.join(VAR_LOCATION, opts[:token_folder_name])
@@ -162,16 +163,16 @@ class OpenNebulaVNC
             f = File.open(File.join(@token_folder, token_file), 'w')
             f.write(token)
             f.close
-          rescue Exception => e
-            #            @logger.error e.message
-            return error(500, 'Cannot create VNC proxy token')
+    rescue Exception => e
+      #            @logger.error e.message
+      return error(500, 'Cannot create VNC proxy token')
           end
 
     info = {
-      proxy_port: '29876',
-      password: vnc_pw,
-      token: random_str,
-      vm_name: vm_resource['NAME']
+      :proxy_port => '29876',
+      :password => vnc_pw,
+      :token => random_str,
+      :vm_name => vm_resource['NAME']
     }
 
     [200, info]
@@ -191,7 +192,7 @@ class OpenNebulaVNC
     if pid
       @logger.info 'Killing VNC proxy'
 
-      signal = (force ? 'KILL' : 'TERM')
+      force ? signal = 'KILL' : signal = 'TERM'
       Process.kill(signal, pid)
 
       sleep 1
@@ -255,9 +256,9 @@ class OpenNebulaVNC
           Dir.glob("#{@token_folder}/*").each do |file|
             File.delete(file)
           end
-        rescue StandardError => e
-          @logger.error 'Error deleting token folder'
-          @logger.error e.message
+      rescue StandardError => e
+        @logger.error 'Error deleting token folder'
+        @logger.error e.message
         end
     end
   end
@@ -298,7 +299,7 @@ class OpenNebulaVNC
     options = {
       :pgroup => true,
       :in => :close,
-      %i[out err] => [log, 'a'],
+      [:out, :err] => [log, 'a'],
       :close_others => true
     }
 
@@ -309,4 +310,5 @@ class OpenNebulaVNC
 
     pid
   end
+
 end

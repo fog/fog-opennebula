@@ -2,9 +2,13 @@ require 'fog/core/collection'
 require 'fog/opennebula/models/compute/group'
 
 module Fog
+
   module Compute
+
     class OpenNebula
+
       class Groups < Fog::Collection
+
         model Fog::Compute::OpenNebula::Group
 
         def all(filter = {})
@@ -12,7 +16,7 @@ module Fog
         end
 
         def get(id)
-          group = all(id: id)
+          group = all(:id => id)
 
           if group.length > 1
             raise Fog::Errors::Error, "groups.get should return only one group, not #{group.length}!"
@@ -22,9 +26,13 @@ module Fog
         end
 
         def get_by_name(str)
-          all(name: str)
+          all(:name => str)
         end
+
       end
+
     end
+
   end
+
 end

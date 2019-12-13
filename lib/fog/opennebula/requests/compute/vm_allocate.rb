@@ -1,7 +1,11 @@
 module Fog
+
   module Compute
+
     class OpenNebula
+
       class Real
+
         def vm_allocate(attr = {})
           if attr[:flavor].nil?
             raise ArgumentError, "Attribute flavor is nil! #{attr.inspect}"
@@ -54,9 +58,11 @@ module Fog
         rescue StandardError => err
           raise(err)
         end
+
       end
 
       class Mock
+
         def vm_allocate(attr = {})
           response = Excon::Response.new
           response.status = 200
@@ -67,6 +73,7 @@ module Fog
           data['vms'].each do |vm|
             ids << vm['id']
             next unless vm['id'] == id
+
             id = rand(1000) while ids.include?(id)
             break
           end
@@ -80,7 +87,11 @@ module Fog
           self.data['vms'] << data
           data
         end
+
       end
+
     end
+
   end
+
 end
