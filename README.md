@@ -1,16 +1,6 @@
 # Fog::OpenNebula
 
-[![OpenNebula](https://img.shields.io/badge/one-5.10.1-blue.svg?style=flat-square)](https://opennebula.org)
-
-## Installation
-
-Gem is not yet on rubygems, so you'll need to build the gem from source code
-
-```bash
- cd fog-opennebula
- gem build fog-opennebula.gemspec
- gem install fog-opennebula-0.0.1.gem
-```
+[![OpenNebula](https://img.shields.io/badge/one-5.10.3-blue.svg?style=flat-square)](https://opennebula.org)
 
 ## Description
 
@@ -22,7 +12,23 @@ Interaction with [OpenNebula](http://www.opennebula.org) is done via the [Ruby O
 
 - Ruby version 2.0.x and higher
 - gems: See [gemspec](./fog-opennebula.gemspec)
-- Working OpenNebula instance with XML-RPC and oneadmin user credentials
+- Working OpenNebula instance with XML-RPC and user credentials
+
+## Installation
+
+Build the gem from source code
+
+```bash
+ cd fog-opennebula
+ gem build fog-opennebula.gemspec
+ gem install fog-opennebula-"$version".gem
+```
+
+Install from rubygems
+
+```bash
+ gem install fog-opennebula
+```
 
 ## Usage
 
@@ -92,4 +98,5 @@ newvm.save
 
 - [Fog website](http://fog.io)
 - [Fog repo](https://github.com/fog/fog)
+- [OpenNebula website](https://opennebula.org)
 - [Ruby OpenNebula Cloud API](http://docs.opennebula.org/stable/integration/system_interfaces/ruby.html)
