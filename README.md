@@ -1,10 +1,10 @@
 # Fog::OpenNebula
 
-[![OpenNebula](https://img.shields.io/badge/one-5.10.3-blue.svg?style=flat-square)](https://opennebula.org)
+[![OpenNebula](https://img.shields.io/badge/one-6.2.1-blue.svg?style=flat-square)](https://opennebula.org)
 
 ## Description
 
-Interaction with [OpenNebula](http://www.opennebula.org) is done via the [Ruby OpenNebula Cloud API](http://docs.opennebula.org/stable/integration/system_interfaces/ruby.html).
+Interaction with [OpenNebula](http://www.opennebula.org) is done via the [Ruby OpenNebula Cloud API](https://docs.opennebula.io/6.2/integration_and_development/system_interfaces/ruby.html).
 
 **Note:** This provider is under construction! This means everything that is provided should work without problems, but there are many features not available yet. Please contribute!
 
