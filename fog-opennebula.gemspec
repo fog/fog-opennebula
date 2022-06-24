@@ -24,7 +24,7 @@ Gem::Specification.new do |s|
     s.add_dependency 'fog-core',  '= 2.1.0'
     s.add_dependency 'fog-json',  '~> 1.1'
     s.add_dependency 'fog-xml',   '~> 0.1'
-    s.add_dependency 'nokogiri',  '< 1.13' # temporary until 18.04 and c8/alma support in one ends
+    s.add_dependency 'nokogiri',  '< 1.13' if RUBY_VERSION < '2.6.0'
     s.add_dependency 'opennebula'
     s.add_dependency 'xmlrpc', '~> 0.3.0' if RUBY_VERSION > '2.4.0'
     s.add_development_dependency 'minitest'
