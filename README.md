@@ -1,6 +1,6 @@
 # Fog::OpenNebula
 
-[![OpenNebula](https://img.shields.io/badge/one-6.2.1-blue.svg?style=flat-square)](https://opennebula.org)
+[![OpenNebula](https://img.shields.io/badge/one-6.6-blue.svg?style=flat-square)](https://opennebula.org) [![OpenNebula](https://img.shields.io/badge/one-6.4-blue.svg?style=flat-square)](https://opennebula.org)
 
 ## Description
 
@@ -21,6 +21,7 @@ Build the gem from source code
 ```bash
  cd fog-opennebula
  gem build fog-opennebula.gemspec
+ version=$(ruby -e 'require "./lib/fog/opennebula/version"; puts Fog::OpenNebula::VERSION')
  gem install fog-opennebula-"$version".gem
 ```
 
