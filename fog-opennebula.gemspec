@@ -21,7 +21,7 @@ Gem::Specification.new do |s|
 
     ###### Gem dependencies ######
 
-    s.add_dependency 'fog-core',  '= 2.1.0'
+    s.add_dependency 'fog-core',  '~> 2.1'
     s.add_dependency 'fog-json',  '~> 1.1'
     s.add_dependency 'fog-xml',   '~> 0.1'
     s.add_dependency 'nokogiri',  '< 1.13' if RUBY_VERSION < '2.6.0'
