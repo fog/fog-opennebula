@@ -10,10 +10,10 @@ module Fog
           vms = []
           vmpool = ::OpenNebula::VirtualMachinePool.new(client)
           if filter[:id].nil?
-            vmpool.info(-2, -1, -1, -1)
+            vmpool.info_search(:extended => true)
           elsif filter[:id]
             filter[:id] = filter[:id].to_i if filter[:id].is_a?(String)
-            vmpool.info(-2, filter[:id], filter[:id], -1)
+            vmpool.info_search(:start_id => filter[:id], :end_id => filter[:id], :extended => true)
           end
 
           vmpool.each do |vm|
@@ -30,7 +30,8 @@ module Fog
             data['group']  =  one['VM']['GNAME'] unless one['VM']['GNAME'].nil?
 
             unless one['VM']['TEMPLATE'].nil?
-              data['cpu']    =  one['VM']['TEMPLATE']['VCPU'] unless one['VM']['TEMPLATE']['VCPU'].nil?
+              data['cpu']    =  one['VM']['TEMPLATE']['CPU'] unless one['VM']['TEMPLATE']['CPU'].nil?
+              data['vcpu']   =  one['VM']['TEMPLATE']['VCPU'] unless one['VM']['TEMPLATE']['VCPU'].nil?
               data['memory'] =  one['VM']['TEMPLATE']['MEMORY'] unless one['VM']['TEMPLATE']['MEMORY'].nil?
               unless one['VM']['TEMPLATE']['NIC'].nil?
                 if one['VM']['TEMPLATE']['NIC'].is_a?(Array)
