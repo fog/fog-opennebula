@@ -1,6 +1,6 @@
 # Fog::OpenNebula
 
-[![OpenNebula](https://img.shields.io/badge/one-6.6-blue.svg?style=flat-square)](https://opennebula.org) [![OpenNebula](https://img.shields.io/badge/one-6.4-blue.svg?style=flat-square)](https://opennebula.org)
+[![OpenNebula](https://img.shields.io/badge/one-6.8-blue.svg?style=flat-square)](https://opennebula.org) [![OpenNebula](https://img.shields.io/badge/one-6.4-blue.svg?style=flat-square)](https://opennebula.org)
 
 ## Description
 
