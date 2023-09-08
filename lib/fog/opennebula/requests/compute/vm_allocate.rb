@@ -41,7 +41,8 @@ module Fog
 
           unless one['VM']['TEMPLATE'].nil?
             temp = one['VM']['TEMPLATE']
-            data['cpu']    =  temp['VCPU']	unless temp['VCPU'].nil?
+            data['cpu']    =  temp['CPU']	unless temp['CPU'].nil?
+            data['vcpu']   =  temp['VCPU']	unless temp['VCPU'].nil?
             data['memory'] =  temp['MEMORY']	unless temp['MEMORY'].nil?
             unless temp['NIC'].nil?
               if one['VM']['TEMPLATE']['NIC'].is_a?(Array)
