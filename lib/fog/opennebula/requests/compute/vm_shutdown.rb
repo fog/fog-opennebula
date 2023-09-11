@@ -1,22 +1,22 @@
 module Fog
 
-  module Compute
+    module Compute
 
-    class OpenNebula
+        class OpenNebula
 
-      class Real
+            class Real
 
-        def vm_shutdown(id)
-          vmpool = ::OpenNebula::VirtualMachinePool.new(client)
-          vmpool.info(-2, id, id, -1)
+                def vm_shutdown(id)
+                    vmpool = ::OpenNebula::VirtualMachinePool.new(client)
+                    vmpool.info(-2, id, id, -1)
 
-          vmpool.each(&:shutdown)
+                    vmpool.each(&:shutdown)
+                end
+
+            end
+
         end
 
-      end
-
     end
-
-  end
 
 end

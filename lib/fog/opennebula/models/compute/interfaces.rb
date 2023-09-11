@@ -3,18 +3,18 @@ require 'fog/opennebula/models/compute/interface'
 
 module Fog
 
-  module Compute
+    module Compute
 
-    class OpenNebula
+        class OpenNebula
 
-      class Interfaces < Fog::Collection
+            class Interfaces < Fog::Collection
 
-        model Fog::Compute::OpenNebula::Interface
+                model Fog::Compute::OpenNebula::Interface
 
-      end
+            end
+
+        end
 
     end
-
-  end
 
 end

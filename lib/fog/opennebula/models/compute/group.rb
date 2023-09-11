@@ -2,27 +2,28 @@ require 'fog/core/model'
 
 module Fog
 
-  module Compute
+    module Compute
 
-    class OpenNebula
+        class OpenNebula
 
-      class Group < Fog::Model
+            class Group < Fog::Model
 
-        identity :id
-        attribute :name
+                identity :id
+                attribute :name
 
-        def save
-          raise Fog::Errors::Error, 'Creating a new group is not yet implemented. Contributions welcome!'
+                def save
+                    raise Fog::Errors::Error,
+                          'Creating a new group is not yet implemented. Contributions welcome!'
+                end
+
+                def to_label
+                    name
+                end
+
+            end
+
         end
-
-        def to_label
-          name
-        end
-
-      end
 
     end
-
-  end
 
 end

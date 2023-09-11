@@ -3,36 +3,37 @@ require 'fog/opennebula/models/compute/group'
 
 module Fog
 
-  module Compute
+    module Compute
 
-    class OpenNebula
+        class OpenNebula
 
-      class Groups < Fog::Collection
+            class Groups < Fog::Collection
 
-        model Fog::Compute::OpenNebula::Group
+                model Fog::Compute::OpenNebula::Group
 
-        def all(filter = {})
-          load(service.list_groups(filter))
+                def all(filter = {})
+                    load(service.list_groups(filter))
+                end
+
+                def get(id)
+                    group = all(:id => id)
+
+                    if group.length > 1
+                        raise Fog::Errors::Error,
+                              "groups.get should return only one group, not #{group.length}!"
+                    end
+
+                    group.first
+                end
+
+                def get_by_name(str)
+                    all(:name => str)
+                end
+
+            end
+
         end
-
-        def get(id)
-          group = all(:id => id)
-
-          if group.length > 1
-            raise Fog::Errors::Error, "groups.get should return only one group, not #{group.length}!"
-          end
-
-          group.first
-        end
-
-        def get_by_name(str)
-          all(:name => str)
-        end
-
-      end
 
     end
-
-  end
 
 end
