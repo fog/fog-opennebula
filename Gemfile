@@ -1,9 +1,16 @@
-source "https://rubygems.org"
+source 'https://rubygems.org'
 
 group :development, :test do
-  # This is here because gemspec doesn't support require: false
-  #gem "netrc", :require => false
-  #gem "octokit", :require => false
+    # Existing gems
+    # gem "netrc", :require => false
+    # gem "octokit", :require => false
+
+    gem 'minitest'
+    gem 'minitest-stub-const'
+    gem 'mocha'
+    gem 'rake'
+    gem 'shindo'
+    gem 'simplecov'
 end
 
 gemspec

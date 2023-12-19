@@ -10,9 +10,8 @@ Interaction with [OpenNebula](http://www.opennebula.org) is done via the [Ruby O
 
 ## Requirements
 
-- Ruby version 2.0.x and higher
-- gems: See [gemspec](./fog-opennebula.gemspec)
-- Working OpenNebula instance with XML-RPC and user credentials
+- See [gemspec](./fog-opennebula.gemspec) for ruby and gem versions
+- User credentials for an XMLRPC endpoint of an OpenNebula instance
 
 ## Installation
 
