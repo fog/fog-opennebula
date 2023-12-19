@@ -24,5 +24,4 @@ Gem::Specification.new do |s|
     s.add_dependency 'fog-json', '~> 1.1'
     s.add_dependency 'fog-xml', '~> 0.1'
     s.add_dependency 'opennebula'
-    s.metadata['rubygems_mfa_required'] = 'true'
 end
