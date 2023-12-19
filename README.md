@@ -1,5 +1,7 @@
 # Fog::OpenNebula
 
+[![release](https://github.com/fog/fog-opennebula/actions/workflows/release.yaml/badge.svg)](https://github.com/fog/fog-opennebula/actions/workflows/release.yaml)
+
 [![OpenNebula](https://img.shields.io/badge/one-6.8-blue.svg?style=flat-square)](https://opennebula.org) [![OpenNebula](https://img.shields.io/badge/one-6.4-blue.svg?style=flat-square)](https://opennebula.org)
 
 ## Description
